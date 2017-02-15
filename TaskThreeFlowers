@@ -1,0 +1,77 @@
+using System;
+
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+clas TaskThreeFlowers
+{
+    static void Main()
+    {
+        int chrysBougth = int.Parse(Console.ReadLine());
+        int roseBougth = int.Parse(Console.ReadLine());
+        int tulipsBougth = int.Parse(Console.ReadLine());
+        string enterSeason = Console.ReadLine();
+        string[] season = new string[] { "Spring", "Summer", "Autumn", "Winter" };
+        char isHoliday = char.Parse(Console.ReadLine());
+        decimal allFlowersBougth = chrysBougth + roseBougth + tulipsBougth;
+        decimal price = 0;
+        if (enterSeason == season[0] || enterSeason == season[1])
+        {
+            price = (chrysBougth * 2.00m) + (roseBougth * 4.1m) + (tulipsBougth * 2.5m);
+            if (isHoliday == 'Y')
+            {
+                price = price + (price * (15m / 100m));
+
+                if (tulipsBougth > 7&&enterSeason ==season[0] )
+                {
+                    price = price - (price * (5m / 100m));
+                }
+                if (allFlowersBougth > 20)
+                {
+                    price = price - (price * (20m / 100m));
+                }
+            }
+            if (isHoliday == 'N')
+            {
+                if (tulipsBougth > 7&&enterSeason==season[0])
+                {
+                    price = price - (price * (5m / 100m));
+                }
+                if (allFlowersBougth > 20)
+                {
+                    price = price - (price * (20m / 100m));
+                }
+            }
+        }
+        else if (enterSeason == season[2] || enterSeason == season[3])
+        {
+            price = (chrysBougth * 3.75m) + (roseBougth * 4.5m) + (tulipsBougth * 4.15m);
+            if (isHoliday == 'Y')
+            {
+                price = price + (price * (15m / 100m));
+
+                if (roseBougth >=   10 && enterSeason==season[3])
+                {
+                    price = price - (price * (10m / 100m));
+                }
+                if (allFlowersBougth > 20)
+                {
+                    price = price - (price * (20m / 100m));
+                }
+            }
+            if (isHoliday == 'N')
+            {
+                if (roseBougth >= 10 && enterSeason == season[3])
+                {
+                    price = price - (price * (10m / 100m));
+                }
+                if (allFlowersBougth > 20)
+                {
+                    price = price - (price * (20m / 100m));
+                }
+            }
+        }
+        Console.WriteLine("{0:0.00}", price + 2m);
+    }
+}
