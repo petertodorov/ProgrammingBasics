@@ -1,0 +1,33 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+class ProgrammingBasicsExamTwoChangeTiles
+{
+    static void Main()
+    {
+        decimal moneyGathered = decimal.Parse(Console.ReadLine());
+        decimal floorWide = decimal.Parse(Console.ReadLine());
+        decimal floorLength = decimal.Parse(Console.ReadLine());
+        decimal triangleSide = decimal.Parse(Console.ReadLine());
+        decimal triangleHeight = decimal.Parse(Console.ReadLine());
+        decimal priseOneTile = decimal.Parse(Console.ReadLine());
+        decimal feeMaster = decimal.Parse(Console.ReadLine());
+
+        decimal floorArea = floorWide * floorLength;
+        decimal floorTriangle = (triangleSide * triangleHeight) / 2;
+        decimal tilesNeeded = Math.Ceiling((floorArea / floorTriangle) + 5);
+        Math.Ceiling(tilesNeeded);
+        decimal totalSum = (tilesNeeded * priseOneTile) + feeMaster;
+        decimal toPrint = moneyGathered - totalSum;
+        if (moneyGathered >=totalSum)
+        {
+            Console.WriteLine("{0:0.00} lv left.", toPrint);
+        }
+        else
+        {
+            Console.WriteLine("You'll need {0:0.00} lv more.", Math.Abs(toPrint));
+        }
+    }
+}
