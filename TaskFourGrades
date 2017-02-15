@@ -1,0 +1,43 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+class ProgrammingBasicsExamFourGrades
+{
+    static void Main()
+    {
+        decimal numStudents = decimal.Parse(Console.ReadLine());
+        int topStudents = 0;
+        int fourAndFive = 0;
+        int threeAndFour = 0;
+        int fail = 0;
+        decimal average = 0;
+        for (int i = 0; i < numStudents; i++)
+        {
+            decimal grade = decimal.Parse(Console.ReadLine());
+            average += grade;
+            if (grade >=5.00m)
+            {
+                topStudents++;
+            }
+            if (grade>=4.00m && grade <=4.99m)
+            {
+                fourAndFive++;
+            }
+            if (grade >= 3.00m && grade <=3.99m)
+            {
+                threeAndFour++;
+            }
+            if (grade<3.00m)
+            {
+                fail++;
+            }
+        }
+        Console.WriteLine("Top students: {0:0.00}%",(topStudents/numStudents)*100m);
+        Console.WriteLine("Between 4.00 and 4.99: {0:0.00}%", (fourAndFive / numStudents) * 100m);
+        Console.WriteLine("Between 3.00 and 3.99: {0:0.00}%", (threeAndFour / numStudents) * 100m);
+        Console.WriteLine("Fail: {0:0.00}%", (fail / numStudents) * 100m);
+        Console.WriteLine("Average: {0:0.00}", average/numStudents);
+    }
+}
