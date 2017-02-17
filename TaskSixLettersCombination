@@ -1,0 +1,36 @@
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+class TaskSixLettersCombination
+{
+    static void Main(string[] arg)
+    {
+        char start = char.Parse(Console.ReadLine());
+        char end = char.Parse(Console.ReadLine());
+        int length = (int)(end) - (int)(start);
+        int count = 0;
+        char ommit = char.Parse(Console.ReadLine());
+        for (int row = 0; row < length + 1; row++)
+        {
+            for (int col = 0; col < length + 1; col++)
+            {
+                for (int third = 0; third < length + 1; third++)
+                {
+                    if ((char)(start + row) != ommit && (char)(start + col) != ommit && (char)(start + third) != ommit)
+                    {
+                        count++;
+                        Console.Write("{0}{1}{2} ", (char)(start + row), (char)(start + col), (char)(start + third));
+                    }
+                }
+            }
+        }
+        Console.WriteLine(count);
+    }
+}
+
+
+
+
