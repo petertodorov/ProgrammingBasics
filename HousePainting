@@ -1,0 +1,24 @@
+using System;
+
+class HousePainting
+{
+    static void Main()
+    {
+        decimal x = decimal.Parse(Console.ReadLine());
+        decimal y = decimal.Parse(Console.ReadLine());
+       decimal h = decimal.Parse(Console.ReadLine());
+        decimal sideWall = x * y;
+        decimal windowSize= 1.5M * 1.5M;
+        decimal strainici = sideWall * 2 - 2 * windowSize;
+        decimal rearWall = x * x;
+        decimal entrance = 1.2M * 2;
+        decimal frontRearWall = 2 * rearWall - entrance;
+        decimal totalWallsArea = strainici + frontRearWall;
+        decimal greenPaint = totalWallsArea / 3.4M;
+        decimal roofSides = 2 * (x * y);
+        decimal roofTriangles = 2 * ((x * h) / 2);
+        decimal totalRoof = roofSides + roofTriangles;
+        Console.WriteLine("{0:F2}", greenPaint);
+        Console.WriteLine("{0:F2}", totalRoof /4.3M);
+    }
+}
