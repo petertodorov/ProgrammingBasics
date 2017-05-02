@@ -1,0 +1,29 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+class Parallelepiped
+{
+    static void Main(string[] args)
+    {
+        int n = int.Parse(Console.ReadLine());
+        int height = 4 * n + 4;
+        int wide = 3 * n + 1;
+  
+        Console.WriteLine($"{"+"}{new string('~',n-2)}{"+"}{new string('.',2*n+1)}");
+        for (int rows = 0; rows <2*n+1; rows++)
+        {
+                Console.Write("|");
+                Console.Write(new string('.',rows));
+                Console.WriteLine($"{"\\"}{new string('~', n - 2)}{"\\"}{new string('.', (2 * n)-rows)}");
+        }
+        for (int rows = 0; rows < 2 * n + 1; rows++)
+        {
+            Console.Write(new string('.', rows));
+            Console.WriteLine($"{"\\"}{new string('.', (2 * n) - rows)}{"|"}{new string('~', n - 2)}{"|"}");
+        }
+        Console.WriteLine($"{new string('.', 2 * n + 1)}{"+"}{new string('~', n - 2)}{"+"}");
+    }
+}
