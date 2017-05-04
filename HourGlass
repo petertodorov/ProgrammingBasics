@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+class HourGlass
+{
+    static void Main(string[] args)
+    {
+        int n = int.Parse(Console.ReadLine());
+        int wide = 2 * n + 1;
+
+        Console.WriteLine(new string('*', wide));
+        Console.WriteLine($"{"."}{"*"}{new string(' ', wide - 4)}{"*"}{"."}");
+        for (int rows = 0; rows < n - 2; rows++)
+        {
+
+            Console.Write(new string('.', rows + 2));
+            Console.Write("*");
+            Console.Write(new string('@', wide - 2 * (rows + 3)));
+            Console.Write("*");
+            Console.WriteLine(new string('.', rows + 2));
+        }
+        Console.Write(new string('.', (wide - 1) / 2));
+        Console.Write("*");
+        Console.WriteLine(new string('.', (wide - 1) / 2));
+
+        for (int rows = (wide - 5) / 2; rows > 0; rows--)
+        {
+            Console.Write(new string('.', rows + 1));
+            Console.Write("*");
+            Console.Write(new string(' ', n - (rows + 2)));
+            Console.Write("@");
+            Console.Write(new string(' ', n - (rows + 2)));
+            Console.Write("*");
+            Console.WriteLine(new string('.', rows + 1));
+        }
+        Console.WriteLine($"{"."}{"*"}{new string('@', wide - 4)}{"*"}{"."}");
+        Console.WriteLine(new string('*', wide));
+    }
+}
