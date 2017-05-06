@@ -1,0 +1,44 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+class SoftUniLogo
+{
+    static void Main(string[] args)
+    {
+        int n = int.Parse(Console.ReadLine());
+        int high = 4 * n - 2;
+        int wide = 12 * n - 5;
+        int first = 2 * n;
+        for (int i = 0; i < first; i++)
+        {
+            int hashtags = i * 6 + 1;
+            Console.Write(new string('.',(wide -hashtags)/2));
+            Console.Write(new string('#',hashtags));
+            Console.WriteLine(new string('.', (wide - hashtags) / 2));
+        }
+        int numDots = 3;
+        for (int i = 0; i <n-2; i++)
+        {
+            Console.Write("|");
+            Console.Write(new string('.',(numDots-1)));
+            Console.Write(new string('#', wide - numDots*2));
+            Console.WriteLine(new string('.', numDots));
+            numDots += 3;
+        }
+        for (int i = 0; i < n-1; i++)
+        {
+            Console.Write("|");
+            Console.Write(new string('.', (numDots - 1)));
+            Console.Write(new string('#', wide - numDots * 2));
+            Console.WriteLine(new string('.', numDots));
+        }
+        Console.Write("@");
+        Console.Write(new string('.', (numDots - 1)));
+        Console.Write(new string('#', wide - numDots * 2));
+        Console.WriteLine(new string('.', numDots));
+    }
+}
+
+
