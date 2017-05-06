@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Numerics;
+class MagicNumbers
+{
+    static void Main(string[] args)
+
+    {
+      
+        int n = int.Parse(Console.ReadLine());
+        int first = 0;
+        int second= 0;
+        int third = 0;
+        int fourth = 0;
+        int fifth = 0;
+        int sixth = 0;
+        List<int> numbers = new List<int>();
+
+        for (int i = 100000; i < 999999; i++)
+        {
+            first = i /100000;
+            second = (i /10000)%10;
+            third = (i / 1000) % 10;
+            fourth= (i / 100) % 10;
+            fifth= (i / 10) % 10;
+            sixth = i % 10;
+
+            BigInteger   mult = first * second * third * fourth * fifth * sixth;
+            if (mult==n)
+            {
+                numbers.Add(i);
+            }
+        };
+        Console.WriteLine(String.Join(" ",numbers));
+       
+    }
+}
+
