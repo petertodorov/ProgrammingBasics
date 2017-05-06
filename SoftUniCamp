@@ -1,0 +1,58 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+class SoftUniCamp
+{
+    static void Main(string[] args)
+    {
+        int numGroups = int.Parse(Console.ReadLine());
+        decimal numPeopleGroup = 0;
+        decimal totalNum = 0;
+        decimal car = 0;
+        decimal minivan = 0;
+        decimal smallBus = 0;
+        decimal bigBus = 0;
+        decimal train = 0;
+        for (int i = 0; i < numGroups; i++)
+        {
+            numPeopleGroup = decimal.Parse(Console.ReadLine());
+            totalNum += numPeopleGroup;
+            if (numPeopleGroup <= 5)
+            {
+                car += numPeopleGroup;
+            }
+            if (numPeopleGroup >= 6 && numPeopleGroup <= 12)
+            {
+                minivan += numPeopleGroup;
+            }
+            if (numPeopleGroup > 12 && numPeopleGroup <= 25)
+            {
+                smallBus += numPeopleGroup;
+            }
+            if (numPeopleGroup >= 26 && numPeopleGroup <= 40)
+            {
+                bigBus += numPeopleGroup;
+            }
+            if (numPeopleGroup >= 41)
+            {
+                train += numPeopleGroup;
+            }
+
+        }
+        decimal carPercent = (car / totalNum) * 100M;
+        decimal vanPercent = (minivan / totalNum) * 100M;
+        decimal smallBusPercent = (smallBus / totalNum) * 100M;
+        decimal bigBusPercent = (bigBus / totalNum) * 100M;
+        decimal trainPercent = (train / totalNum) * 100M;
+
+        Console.WriteLine($"{carPercent:F2}%");
+        Console.WriteLine($"{vanPercent:F2}%");
+        Console.WriteLine($"{smallBusPercent:F2}%");
+        Console.WriteLine($"{bigBusPercent:F2}%");
+        Console.WriteLine($"{trainPercent:F2}%");
+    }
+}
+
+
