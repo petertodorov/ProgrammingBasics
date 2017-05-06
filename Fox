@@ -1,0 +1,44 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+class Fox
+{
+    static void Main(string[] args)
+    {
+        int n = int.Parse(Console.ReadLine());
+        int wide = 2 * n + 3;
+
+        {//upper part
+            for (int row = 1; row <= n; row++)
+            {
+                Console.Write(new string('*', row));
+                Console.Write("\\");
+                Console.Write(new string('-', wide - (row + 1) * 2));
+                Console.Write("/");
+                Console.WriteLine(new string('*', row));
+            }
+            //middle part
+            for (int row = 0; row < n / 3; row++)
+            {
+                Console.Write("|");
+                Console.Write(new string('*', n / 2 + row));
+                Console.Write("\\");
+                Console.Write(new string('*', n - row * 2));
+                Console.Write("/");
+                Console.Write(new string('*', n / 2 + row));
+                Console.WriteLine("|");
+            }
+            //lower part
+            for (int row = 1; row <= n; row++)
+            {
+                Console.Write(new string('-', row));
+                Console.Write("\\");
+                Console.Write(new string('*', wide - (row + 1) * 2));
+                Console.Write("/");
+                Console.WriteLine(new string('-', row));
+            }
+        }
+    }
+}
