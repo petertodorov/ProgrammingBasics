@@ -1,0 +1,61 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+class NumberGenerator
+{
+    static void Main(string[] args)
+    {
+        int m = int.Parse(Console.ReadLine());
+        int n = int.Parse(Console.ReadLine());
+        int l = int.Parse(Console.ReadLine());
+        int special = int.Parse(Console.ReadLine());
+        int control = int.Parse(Console.ReadLine());
+    
+        for (int i = m; i >=1; i--)
+        {
+            for (int j = n; j >=1; j--)
+            {
+                for (int k = l; k >=1; k--)
+                {
+                    string temp = Convert.ToString(i) + Convert.ToString(j) + Convert.ToString(k);
+                    int number = Convert.ToInt32(temp);
+                    if (number % 3 == 0)
+                    {
+                        special = special + 5;
+
+                        if (special >= control)
+                        {
+                            Console.WriteLine("Yes! Control number was reached! Current special number is {0}.", special);
+                            return;
+                        }
+                    }
+                    else if (number % 10 == 5)
+                    {
+                        special = special - 2;
+                        if (special >= control)
+                        {
+                            Console.WriteLine("Yes! Control number was reached! Current special number is {0}.", special);
+                            return;
+                        }
+                    }
+
+                    else if (number % 2 == 0)
+                    {
+                        special = special * 2;
+
+                        if (special >= control)
+                        {
+                            Console.WriteLine("Yes! Control number was reached! Current special number is {0}.", special);
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+        Console.WriteLine("No! {0} is the last reached special number.", special);
+
+    }
+}
